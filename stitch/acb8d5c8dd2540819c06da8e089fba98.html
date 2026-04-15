@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c3c6d7",
+                        "surface-tint": "#b4c5ff",
+                        "on-secondary-container": "#a4b6f5",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-container": "#33467e",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "primary-container": "#2563eb",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "tertiary-container": "#bc4800",
+                        "primary": "#b4c5ff",
+                        "on-surface": "#dae2fd",
+                        "background": "#0b1326",
+                        "outline-variant": "#434655",
+                        "secondary": "#b4c5ff",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#ffede6",
+                        "surface-container-high": "#222a3d",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary": "#182d63",
+                        "on-background": "#dae2fd",
+                        "on-tertiary": "#581e00",
+                        "surface-container-highest": "#2d3449",
+                        "on-primary-container": "#eeefff",
+                        "surface-dim": "#0b1326",
+                        "tertiary": "#ffb596",
+                        "on-primary": "#002a78",
+                        "on-tertiary-fixed": "#360f00",
+                        "inverse-primary": "#0053db",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-secondary-fixed": "#00174b",
+                        "inverse-surface": "#dae2fd",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "surface-container": "#171f33",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#060e20",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-low": "#131b2e",
+                        "surface": "#0b1326",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "surface-variant": "#2d3449",
+                        "surface-bright": "#31394d",
+                        "outline": "#8d90a0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(45, 52, 73, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-[#0b1326] dark:bg-[#0b1326] flex justify-between items-center px-8 py-4 w-full max-w-full font-['Inter'] tracking-[-0.02em] sticky top-0 z-50">
+<div class="text-xl font-black text-white tracking-tight">The Nocturnal Curator</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#c3c6d7] hover:text-white transition-colors" href="#">Keşfet</a>
+<a class="text-[#c3c6d7] hover:text-white transition-colors" href="#">Koleksiyonlar</a>
+<a class="text-[#c3c6d7] hover:text-white transition-colors" href="#">Kürasyon</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-[#171f33] border-none text-[#dae2fd] rounded-xl px-4 py-2 focus:ring-2 focus:ring-[#2563EB] w-64 placeholder:text-[#8d90a0]" placeholder="Ara..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-[#8d90a0]">search</span>
+</div>
+<button class="text-[#c3c6d7] hover:text-white transition-all active:scale-95">
+<span class="material-symbols-outlined text-2xl" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<div class="bg-[#171f33] h-[1px] w-full"></div>
+<main class="flex-grow flex items-center justify-center px-6 relative overflow-hidden">
+<!-- Background Ambient Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<!-- Empty State Container -->
+<div class="max-w-md w-full text-center relative z-10">
+<!-- Icon Display -->
+<div class="mb-8 flex justify-center">
+<div class="w-32 h-32 rounded-full bg-surface-container-highest/30 flex items-center justify-center relative">
+<span class="material-symbols-outlined text-7xl text-on-surface-variant/40 select-none" data-icon="search_off">search_off</span>
+<div class="absolute inset-0 rounded-full border border-outline-variant/10"></div>
+</div>
+</div>
+<!-- Content -->
+<h1 class="text-3xl font-black text-on-surface mb-4 tracking-tight">Sonuç Bulunamadı</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-10">
+                Aradığınız kriterlere uygun fotoğraf bulunmamaktadır. Lütfen filtrelerinizi kontrol edin.
+            </p>
+<!-- Actions -->
+<div class="flex flex-col gap-4 items-center">
+<button class="bg-primary-container text-white px-8 py-3.5 rounded-xl font-bold tracking-tight hover:brightness-110 active:scale-95 transition-all shadow-[0_8px_30px_rgb(37,99,235,0.2)] flex items-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="filter_alt_off">filter_alt_off</span>
+                    Filtreleri Sıfırla
+                </button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors font-medium flex items-center gap-2 px-6 py-2">
+<span class="material-symbols-outlined text-xl" data-icon="explore">explore</span>
+                    Tüm Koleksiyonu Gör
+                </button>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Mobile Triggered or Desktop Floating) -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full z-40 bg-[#060e20] dark:bg-[#060e20] flex-col w-64 shadow-[40px_0_60px_-15px_rgba(0,0,0,0.3)] transition-all ease-out duration-400">
+<div class="p-8">
+<div class="text-lg font-bold text-white mb-10">Küratör</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-4 text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Inter'] text-sm">Galeri</span>
+</a>
+<a class="flex items-center gap-4 bg-[#2563EB]/10 text-[#2563EB] border-r-4 border-[#2563EB] py-3 px-6 rounded-l-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-['Inter'] text-sm font-bold">Ara</span>
+</a>
+<a class="flex items-center gap-4 text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-['Inter'] text-sm">Favoriler</span>
+</a>
+<a class="flex items-center gap-4 text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-sm">Ayarlar</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-8">
+<div class="flex items-center gap-3 mb-6 p-4 rounded-2xl bg-surface-container-low">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a professional male photographer in soft studio lighting with a neutral expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeF7RJ5lM8T1jjrGdP5M4mSQJcu833mWbdna8PYzzTzigTnqPLLpDCKhN7jcVxZYxwvMpBoSaP7m5aKPNkEClgQkLoqU9wuY9bR23VVwjREDoH_trnkOJAoDjFcdmLmvPNZ63vl5eaWV6MB39ASCxLFbgoG5_lJE8rjr0rVTvT-LehwtmvyfjH7-1AVZKwzqWewSnruWC9hHwrWby2BAYOQ4VlJWcP0ztqkvYJFzvtxXoyuSVT7lzBQQamVoCf18JjsbdKNvuUfpk"/>
+</div>
+<div class="overflow-hidden">
+<div class="text-white text-sm font-bold truncate">Premium Üye</div>
+<div class="text-on-surface-variant text-xs truncate">Kullanıcı Profili</div>
+</div>
+</div>
+<button class="w-full bg-[#2563EB] text-white py-3 rounded-xl font-bold text-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="cloud_upload">cloud_upload</span>
+                Fotoğraf Yükle
+            </button>
+</div>
+</aside>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-white/5 flex justify-around items-center py-4 px-6 z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary-container" href="#">
+<span class="material-symbols-outlined" data-icon="search" data-weight="fill" style="font-variation-settings: 'FILL' 1;">search</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</a>
+</nav>
+<!-- Decorative Corner Gradients -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
+<div class="absolute -top-48 -right-48 w-96 h-96 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-48 -left-48 w-96 h-96 bg-tertiary/5 rounded-full blur-[100px]"></div>
+</div>
+</body></html>

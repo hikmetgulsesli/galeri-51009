@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c3c6d7",
+                        "surface-tint": "#b4c5ff",
+                        "on-secondary-container": "#a4b6f5",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-container": "#33467e",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "primary-container": "#2563eb",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "tertiary-container": "#bc4800",
+                        "primary": "#b4c5ff",
+                        "on-surface": "#dae2fd",
+                        "background": "#0b1326",
+                        "outline-variant": "#434655",
+                        "secondary": "#b4c5ff",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#ffede6",
+                        "surface-container-high": "#222a3d",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary": "#182d63",
+                        "on-background": "#dae2fd",
+                        "on-tertiary": "#581e00",
+                        "surface-container-highest": "#2d3449",
+                        "on-primary-container": "#eeefff",
+                        "surface-dim": "#0b1326",
+                        "tertiary": "#ffb596",
+                        "on-primary": "#002a78",
+                        "on-tertiary-fixed": "#360f00",
+                        "inverse-primary": "#0053db",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-secondary-fixed": "#00174b",
+                        "inverse-surface": "#dae2fd",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "surface-container": "#171f33",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#060e20",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-low": "#131b2e",
+                        "surface": "#0b1326",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "surface-variant": "#2d3449",
+                        "surface-bright": "#31394d",
+                        "outline": "#8d90a0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #0b1326; color: #dae2fd; }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(45, 52, 73, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar Implementation from JSON -->
+<nav class="bg-[#0b1326] dark:bg-[#0b1326] flex justify-between items-center px-8 py-4 w-full max-w-full fixed top-0 z-50">
+<div class="text-xl font-black text-white tracking-tight">The Nocturnal Curator</div>
+<div class="hidden md:flex items-center space-x-8 font-['Inter'] tracking-[-0.02em]">
+<a class="text-[#2563EB] font-bold border-b-2 border-[#2563EB] pb-1" href="#">Keşfet</a>
+<a class="text-[#c3c6d7] hover:text-white transition-colors" href="#">Koleksiyonlar</a>
+<a class="text-[#c3c6d7] hover:text-white transition-colors" href="#">Kürasyon</a>
+</div>
+<div class="flex items-center space-x-4">
+<div class="relative group hidden lg:block">
+<div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">search</span>
+</div>
+<input class="bg-surface-container border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary-container w-64 transition-all" placeholder="Sanat eseri ara..." type="text"/>
+</div>
+<button class="active:scale-95 transition-transform p-2 rounded-full hover:bg-[#2d3449]/50">
+<span class="material-symbols-outlined text-on-surface" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar Implementation for Desktop -->
+<aside class="fixed left-0 top-0 h-full z-40 hidden lg:flex flex-col bg-[#060e20] dark:bg-[#060e20] w-64 pt-24 shadow-[40px_0_60px_-15px_rgba(0,0,0,0.3)]">
+<div class="px-6 mb-8 flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a professional art curator in a dimly lit studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbX3ZjbWP8cduL5vJMjbWpm5034wYPmM7OWPHP6nuzkNMqQ4AdUpbO0i0jj0m0--utCtMgi8df9kQc_7t6n2mV2oay47UrKX9_OF1SaiJDZAw5qLtgtKnk4z8dCC4Pk168YlSeTj7ryUaoAuWk9YRi3vVSyHW_i-YGmSUkAb5q4AEAVpR0QH7o9F7vTq5mhQUsTSaM8_TRQMraRcXU55gZuPkdQKSYhE2jnTwitptMpr4JQk7tSTQH0tEW7nqGOBNdMGTRDi9BNf8"/>
+</div>
+<div>
+<p class="text-white font-bold text-sm">Küratör</p>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest">Premium Üye</p>
+</div>
+</div>
+<nav class="flex-1 font-['Inter'] text-sm">
+<a class="flex items-center space-x-3 bg-[#2563EB]/10 text-[#2563EB] border-r-4 border-[#2563EB] py-3 px-6 ease-out duration-400" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Galeri</span>
+</a>
+<a class="flex items-center space-x-3 text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span>Ara</span>
+</a>
+<a class="flex items-center space-x-3 text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span>Favoriler</span>
+</a>
+<a class="flex items-center space-x-3 text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Ayarlar</span>
+</a>
+</nav>
+<div class="p-6">
+<button class="w-full bg-primary-container text-white py-3 rounded-xl font-bold flex items-center justify-center space-x-2 active:scale-95 transition-transform shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined" data-icon="add_a_photo">add_a_photo</span>
+<span>Fotoğraf Yükle</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:pl-64 pt-24 min-h-screen px-8">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="text-5xl font-black text-white tracking-tighter mb-4">Dijital Sergi</h1>
+<p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">Gecenin derinliğinden süzülen ışıkların, sessiz anların ve unutulmaz karelerin editoryal bir seçkisi.</p>
+</header>
+<!-- Category Filter Bar -->
+<section class="flex flex-wrap items-center gap-4 mb-16 overflow-x-auto pb-4 no-scrollbar">
+<button class="px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-medium text-sm transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)]">Tümü</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-white hover:bg-surface-container-highest font-medium text-sm transition-all">Manzara</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-white hover:bg-surface-container-highest font-medium text-sm transition-all">Portre</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-white hover:bg-surface-container-highest font-medium text-sm transition-all">Şehir</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-white hover:bg-surface-container-highest font-medium text-sm transition-all">Doğa</button>
+</section>
+<!-- Editorial Photo Grid (Asymmetric Layout) -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 pb-24">
+<!-- Card 1: Large Feature -->
+<div class="md:col-span-2 xl:col-span-2 group relative overflow-hidden rounded-xl bg-surface-container">
+<div class="aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="wide cinematic landscape of Yosemite Valley at dusk with misty mountains and purple sky reflected in still water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjxJ38UGjJXvECaYHd5KwAQnK-feQtjQ3YvoCWRSKrZA-7HFrUerxNRxu12zlt85rIlCU0k124YgW21oVB2D23DTzcpcdYBBIwxqGLyOUzFmyQAX5FdKI5WhYo1OL8zYip-dTnH6M0bubC5PvYV0pN1ejuk6gYevmLb3fdHrMma1jAx0iidzfaVQnveg0ap5PvJiuR_CEmOcVRfcDsjKmR5YDPKZo3skVicn_8rJbiG9tVcs2LCb4cQ9PlmChRWfyrtpe3ZTfzma4"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-container mb-2 block">MANZARA</span>
+<h3 class="text-3xl font-bold text-white mb-2">Vadi Sessizliği</h3>
+<p class="text-on-surface-variant text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">ISO 100 • 1/200s • f/8.0</p>
+</div>
+</div>
+<!-- Card 2: Portrait Style -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="close-up editorial portrait of a woman with dramatic neon blue and pink lighting hitting her face in the dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-C3TNVgU5s6C_u5fjZ7WWvq4UTBu36ZkgWSwafyAQ22akjf3Bb4yXg_r-wvSRR1SCyqU0MWm2HPCNHbd3SVVKaexfOkq_UNIhHauJmFNnpShEkC_24s5JeTIuE1xxLbq1Yy5Cnub0lWQovAoEWiK5MoBZYHPlIeUQm40r3--PPBhGVFrsGSl-sJPVlA0JrFS0evlxOohd5sRegmJT9HKEcRMQIyqh5DhNPhVmnuVe0TTvWSIMjzaA3CZ_-zF7PDsBReeQPIvSVvs"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-container mb-1 block">PORTRE</span>
+<h3 class="text-xl font-bold text-white">Neon Bakış</h3>
+</div>
+</div>
+<!-- Card 3: Urban -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="high angle view of a cyberpunk city street at night with glowing yellow taxis and rain-slicked dark pavement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPYsnV85BvuuHGZBBuR-w44gJtDy61tntaErKtvBqJmmXKouDeF_6by4dUXn1TcVBQVNv_oD6Tssl25n92Jx2iSPUCQ22-OqWLFO0AmqHhe6umXkhjXu-Gx6BFeCc810tqD3bibMbzXkMiSud9TA3EMpBI2AOvCKlZb_h9fSzwwZKeolw3mad2KvdL1H5IqQnUwR8JQoWNrBbfz5oDQlTmicJOAlk9wdd3Z2Xq9J-FVj1RX0VVuJ7cHHwz1IgYBViDW8tS_sC1J68"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-container mb-1 block">ŞEHİR</span>
+<h3 class="text-xl font-bold text-white">Metropol Ritmi</h3>
+</div>
+</div>
+<!-- Card 4: Nature -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="enchanted forest floor with sunbeams piercing through tall trees illuminating vibrant green ferns and moss" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtMnhfO2CmgE0bXCqeHthknF6WyWZlfe4dZOJ2FWqqOkC1KTt3iRTnqsScf1BhsCUUchFMC9GOBKGHUCsNfxcmGLMZeSrDqP3uaYvXrj-oFbcjczuVs_xzo8NXL8Y4zsHaVC8dCbLieSaBmkchKx4MOdyGHpRl6t8fU8DnJkDtrw2vCmkMskk7CfGjXaCygYu3OUQY1CrzFLk75mOwr70NrUArEHkODC3W1HeHv__e1Y80RcN39n0oGEup12PYk9cr4IEaaJ2a59M"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-container mb-1 block">DOĞA</span>
+<h3 class="text-xl font-bold text-white">Orman Işığı</h3>
+</div>
+</div>
+<!-- Card 5: Large Vertical -->
+<div class="xl:row-span-2 group relative overflow-hidden rounded-xl bg-surface-container">
+<div class="h-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="vertical shot of a serene alpine lake surrounded by jagged snow-capped peaks at sunrise with soft pastel colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwAGltwkoqMUt0F58IR1FM6RojSBUc5VZI1jIKJ7znxJqSNx2hQi0v1LzXzqP4DDkvbs5e9eybeF4b4WrRu8LbZDkfPBQjpdEtJKzIsLag_Cn_JbOXQGFCNYeZ_TiDPQKrYEbEWyemdevr6B40kxgEZ2nA8M91jqGxTUvzsySEFwKagl8DAFq83ybsU_FvdCc4g-XY_oSmWwmp5TQuI4kw5n6XOsJPYTFovI3-XfOXvphrjDq9X8Xpk9dHX8Rsvw-gPQsDeGEFjo0"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-container mb-1 block">MANZARA</span>
+<h3 class="text-xl font-bold text-white">Zirve Yankısı</h3>
+</div>
+</div>
+<!-- Card 6: Urban -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="misty cobblestone street in old European city with glowing warm iron street lamps and shadowy architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWGKqyO9Z5_tdtJ2AGg6u9nh-vndATbaD99pcY_cIKUZt9cvf9N93ImhPR7OYPLww4nJbzTb9qYs7-bYnJCPuGO2N7zxRrYtmEzWF41VCBoIC0FwX0X6BPZwB5M0ORMJYpJIxqE6g9CzeQfFv6blCnBOZFTIpwAzwYYFy5MW5Wvvbbv7mRoQ-2R8G5U9FbU-ze9YPz4NQ1Sx2mcirvIFRkdBJ5jYWNVV5GDPD-7fUmyVd_zI7Xex6CibL5Iz1F9e1y41N_f6GitWA"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-container mb-1 block">ŞEHİR</span>
+<h3 class="text-xl font-bold text-white">Eski Sokak</h3>
+</div>
+</div>
+<!-- Card 7: Portrait -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="minimalist portrait of a man in a black turtleneck against a dark grey background with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApLx-YrE6NuIvZ9mMv45GorDGDG-5boLkjmCzq3M9WerDnH7S5LCZjHgx3enLRtUq7_rcdXL-Bccz0SD0LCQlK2Dla6LRasg2DmqgYROF6mYBhvWwokKfn4BLaEtESmhOLbkj0WUrVYq0G0CWEFktgEFlXRRndnWfFYjAZc2VfIVlUoYMH8eIKIbHXNXnlwISXIssbpnvOvCJolzvxmKcVZqMe8pLhz61O4VoDwmKhGcFOkmgFMss6UWunTcqyEYMwLCxyUshk1y8"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-container mb-1 block">PORTRE</span>
+<h3 class="text-xl font-bold text-white">Siyah Derinlik</h3>
+</div>
+</div>
+<!-- Card 8: Nature -->
+<div class="md:col-span-2 group relative overflow-hidden rounded-xl bg-surface-container">
+<div class="aspect-[16/6] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="ultra wide panoramic view of majestic jagged mountain range under a clear blue sky with green meadows in foreground" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKg4Ptdjw6WlU5_nocKFpArccy6sYODfbwtavEU9XbNmXqVY-IY4hC6hPfSRfKpbAP7piMO-EJu4LFODwQafZdAq017tEZBkPim6dLHPR77-yY3p0pGAnYtXJjPA2jCdNxtHeHmQaCxnHZe3RtpUGtkCoP98dCn6HcEJ7KXoEYqgunO64PSVA7dvUzRAK7IlgKUUzUgEyHjFpzoeNhpdF_7S7blJYDyA4PgBog_qkfviX8fQ0YfAVqhvQOkUpGf80Ze06W7g0z8ow"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-container mb-1 block">DOĞA</span>
+<h3 class="text-xl font-bold text-white">Vahşi Panorama</h3>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-outline-variant/10 flex justify-around items-center py-4 px-2 z-50">
+<a class="flex flex-col items-center text-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-[10px] font-bold mt-1">Galeri</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] mt-1">Ara</span>
+</a>
+<div class="relative -top-8">
+<button class="bg-primary-container w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-primary-container/40 border-4 border-[#0b1326]">
+<span class="material-symbols-outlined text-white">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] mt-1">Favoriler</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] mt-1">Profil</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#c3c6d7",
+                      "surface-tint": "#b4c5ff",
+                      "on-secondary-container": "#a4b6f5",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "secondary-container": "#33467e",
+                      "on-secondary-fixed-variant": "#31447b",
+                      "primary-container": "#2563eb",
+                      "tertiary-fixed-dim": "#ffb596",
+                      "tertiary-container": "#bc4800",
+                      "primary": "#b4c5ff",
+                      "on-surface": "#dae2fd",
+                      "background": "#0b1326",
+                      "outline-variant": "#434655",
+                      "secondary": "#b4c5ff",
+                      "secondary-fixed": "#dbe1ff",
+                      "on-tertiary-container": "#ffede6",
+                      "surface-container-high": "#222a3d",
+                      "primary-fixed": "#dbe1ff",
+                      "on-secondary": "#182d63",
+                      "on-background": "#dae2fd",
+                      "on-tertiary": "#581e00",
+                      "surface-container-highest": "#2d3449",
+                      "on-primary-container": "#eeefff",
+                      "surface-dim": "#0b1326",
+                      "tertiary": "#ffb596",
+                      "on-primary": "#002a78",
+                      "on-tertiary-fixed": "#360f00",
+                      "inverse-primary": "#0053db",
+                      "tertiary-fixed": "#ffdbcd",
+                      "on-secondary-fixed": "#00174b",
+                      "inverse-surface": "#dae2fd",
+                      "on-error": "#690005",
+                      "secondary-fixed-dim": "#b4c5ff",
+                      "surface-container": "#171f33",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "error-container": "#93000a",
+                      "surface-container-lowest": "#060e20",
+                      "inverse-on-surface": "#283044",
+                      "surface-container-low": "#131b2e",
+                      "surface": "#0b1326",
+                      "error": "#ffb4ab",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed": "#00174b",
+                      "on-tertiary-fixed-variant": "#7d2d00",
+                      "surface-variant": "#2d3449",
+                      "surface-bright": "#31394d",
+                      "outline": "#8d90a0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 40px 60px -15px rgba(0, 0, 0, 0.3);
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+    </style>
+</head>
+<body class="font-body overflow-hidden">
+<!-- Top Navigation Bar -->
+<nav class="bg-[#0b1326] flex justify-between items-center px-8 py-4 w-full max-w-full docked full-width top-0 z-50 font-['Inter'] tracking-[-0.02em]">
+<div class="text-xl font-black text-white tracking-tight">The Nocturnal Curator</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#c3c6d7] hover:text-white transition-colors" href="#">Keşfet</a>
+<a class="text-[#c3c6d7] hover:text-white transition-colors" href="#">Koleksiyonlar</a>
+<a class="text-[#c3c6d7] hover:text-white transition-colors" href="#">Kürasyon</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-[#c3c6d7] hover:bg-[#2d3449]/50 transition-all duration-300 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<div class="bg-[#171f33] h-[1px] w-full"></div>
+<!-- Main Content Area with Side Nav -->
+<div class="flex h-[calc(100vh-65px)]">
+<!-- Side Navigation (Suppressed on mobile, visible on web) -->
+<aside class="hidden md:flex flex-col bg-[#060e20] h-full w-64 z-40 font-['Inter'] text-sm shadow-[40px_0_60px_-15px_rgba(0,0,0,0.3)]">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Kullanıcı Profili" class="w-full h-full object-cover" data-alt="minimalist professional headshot of a creative director in soft cinematic lighting with dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1oK_bCIct0l9G4Vx8F2ykkM2SOKOTXJqoyn3F3qMgL26sCIFmmd7GDMu_IfxbKvizuxZmYGj1xehfGBmS5caPS_ZasAVlLHKkUp9rnaN8VhzaskUxg_h1KG8_fu1PWrURUkXpfKvTPWFY76f5HdgIrhgjZnUe2oXfc6P9EZfwFET0wjiVa0GQkWpDhcCRZll_y6_duCi8wia9KkstyvM-aOKs5crwaX0ITuTIbB-qkoadeuyq5G01on5vOWG4DdDspXR2OG27zIA"/>
+</div>
+<div>
+<div class="text-white font-bold">Küratör</div>
+<div class="text-on-surface-variant text-xs">Premium Üye</div>
+</div>
+</div>
+<nav class="flex-grow mt-4">
+<div class="text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] flex items-center gap-4 cursor-pointer hover:backdrop-blur-md transition-all ease-out duration-400">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Galeri</span>
+</div>
+<div class="text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] flex items-center gap-4 cursor-pointer hover:backdrop-blur-md transition-all ease-out duration-400">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span>Ara</span>
+</div>
+<div class="text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] flex items-center gap-4 cursor-pointer hover:backdrop-blur-md transition-all ease-out duration-400">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span>Favoriler</span>
+</div>
+<div class="text-[#c3c6d7] py-3 px-6 hover:bg-[#171f33] flex items-center gap-4 cursor-pointer hover:backdrop-blur-md transition-all ease-out duration-400">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Ayarlar</span>
+</div>
+</nav>
+<div class="p-6">
+<button class="w-full bg-primary-container text-white py-3 rounded-xl font-bold active:scale-95 transition-transform">
+                    Fotoğraf Yükle
+                </button>
+</div>
+</aside>
+<!-- Error Canvas -->
+<main class="flex-grow relative flex flex-col items-center justify-center p-6 md:p-12">
+<!-- Background Decorative Elements (Blurry shapes for depth) -->
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10"></div>
+<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-error/5 rounded-full blur-[80px] -z-10"></div>
+<!-- Error Content Card -->
+<div class="max-w-md w-full text-center space-y-8">
+<!-- Error Icon Cluster -->
+<div class="relative inline-block">
+<div class="w-24 h-24 bg-surface-container rounded-full flex items-center justify-center border border-outline-variant/10">
+<span class="material-symbols-outlined text-error text-5xl" data-icon="error_outline" style="font-variation-settings: 'FILL' 1;">error_outline</span>
+</div>
+<!-- Small pulsing indicator -->
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-error rounded-full animate-pulse border-2 border-background"></div>
+</div>
+<!-- Text Content -->
+<div class="space-y-4">
+<h1 class="text-white text-3xl md:text-4xl font-black tracking-tight leading-tight">
+                        Bir Hata Oluştu
+                    </h1>
+<p class="text-on-surface-variant leading-relaxed font-medium">
+                        Fotoğraflar yüklenirken bir sorunla karşılaştık. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.
+                    </p>
+</div>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-300 bg-primary-container rounded-xl overflow-hidden hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] active:scale-95">
+<span class="relative z-10 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="refresh">refresh</span>
+                            Tekrar Dene
+                        </span>
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-container to-[#4176f5] opacity-100 transition-opacity"></div>
+</button>
+</div>
+<!-- Technical Details (Low emphasis) -->
+<div class="pt-8 opacity-40">
+<p class="text-[0.7rem] uppercase tracking-widest font-bold text-on-surface-variant">Hata Kodu: ERR_CONNECTION_FAILED</p>
+</div>
+</div>
+<!-- Empty Grid Skeleton (Faint in the background to suggest broken state) -->
+<div class="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-8 p-12 -z-20 opacity-5 pointer-events-none">
+<div class="aspect-[3/4] bg-surface-container rounded-xl"></div>
+<div class="aspect-[4/5] bg-surface-container rounded-xl mt-12"></div>
+<div class="aspect-square bg-surface-container rounded-xl"></div>
+<div class="aspect-[3/4] bg-surface-container rounded-xl mt-6"></div>
+<div class="aspect-[4/3] bg-surface-container rounded-xl"></div>
+<div class="aspect-square bg-surface-container rounded-xl -mt-8"></div>
+<div class="aspect-[3/4] bg-surface-container rounded-xl"></div>
+<div class="aspect-[5/7] bg-surface-container rounded-xl mt-4"></div>
+</div>
+</main>
+</div>
+<!-- Bottom Navigation (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-[#0b1326] flex justify-around items-center py-4 px-6 z-50">
+<button class="flex flex-col items-center gap-1 text-[#c3c6d7]">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-[10px]">Galeri</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#c3c6d7]">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-[10px]">Ara</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#2563EB] font-bold">
+<span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-[10px]">Favoriler</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#c3c6d7]">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px]">Ayarlar</span>
+</button>
+</div>
+</body></html>
