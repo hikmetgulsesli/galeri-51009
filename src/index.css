@@ -1,0 +1,66 @@
+@import "../stitch/design-tokens.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body, Inter), system-ui, sans-serif;
+  background-color: var(--color-background, #0b1326);
+  color: var(--color-on-background, #dae2fd);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Glassmorphism panel */
+.glass-panel {
+  backdrop-filter: blur(20px);
+  background: rgba(45, 52, 73, 0.4);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Hide scrollbar for filter bar horizontal scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Material Symbols Outlined */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+/* Lightbox transitions */
+.lightbox-image-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+.lightbox-image-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+.lightbox-image-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.lightbox-image-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}

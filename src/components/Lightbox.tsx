@@ -67,13 +67,43 @@ export function Lightbox({ photo, photos, isOpen, onClose, onNavigate }: Lightbo
     };
   }, [isOpen]);
 
+  const handleDownload = useCallback(() => {
+    if (!photo) return;
+    const link = document.createElement('a');
+    link.href = photo.src;
+    link.download = `${photo.alt.replace(/[^a-zA-Z0-9ığüşöç]/g, '_')}.jpg`;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, [photo]);
+
+  const handleShare = useCallback(async () => {
+    if (!photo) return;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: photo.alt,
+          text: `${photo.alt} - ${photo.photographer || ''}`,
+          url: window.location.href,
+        });
+      } catch {
+        // Kullanıcı iptal etti veya paylaşım başarısız
+      }
+    } else {
+      // Fallback: URL'yi panoya kopyala
+      navigator.clipboard.writeText(window.location.href).catch(() => {});
+    }
+  }, [photo]);
+
   if (!isOpen || !photo) return null;
 
   const categoryLabel = CATEGORY_LABELS[photo.category] || photo.category;
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex flex-col bg-[#060e20]/95 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex flex-col bg-[#060e20]/95 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-label="Fotoğraf detay görünümü"
@@ -86,7 +116,7 @@ export function Lightbox({ photo, photos, isOpen, onClose, onNavigate }: Lightbo
         </div>
         <button
           onClick={onClose}
-          className="glass-panel p-3 rounded-full text-on-surface hover:text-white transition-all active:scale-95 group"
+          className="glass-panel p-3 rounded-full text-on-surface hover:text-white transition-all active:scale-95 group cursor-pointer"
           aria-label="Kapat"
         >
           <span className="material-symbols-outlined block group-hover:rotate-90 transition-transform duration-300">close</span>
@@ -101,7 +131,7 @@ export function Lightbox({ photo, photos, isOpen, onClose, onNavigate }: Lightbo
           disabled={!hasPrev}
           className={`absolute left-6 md:left-12 z-20 glass-panel p-4 rounded-full transition-all active:scale-90 group ${
             hasPrev 
-              ? 'text-on-surface hover:bg-primary-container/20 hover:text-primary' 
+              ? 'text-on-surface hover:bg-primary-container/20 hover:text-primary cursor-pointer' 
               : 'text-on-surface/30 cursor-not-allowed'
           }`}
           aria-label="Önceki fotoğraf"
@@ -122,14 +152,19 @@ export function Lightbox({ photo, photos, isOpen, onClose, onNavigate }: Lightbo
               alt={photo.alt}
             />
             {/* Floating Tech Specs */}
-            <div className={`absolute top-6 left-6 glass-panel px-4 py-2 rounded-full hidden md:flex items-center gap-4 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+            <div 
+              className={`absolute top-6 left-6 glass-panel px-4 py-2 rounded-full hidden md:flex items-center gap-4 transition-opacity duration-500 ${
+                isHovered ? 'opacity-100' : 'opacity-0'
+              }`}
+              aria-hidden="true"
+            >
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm text-primary" aria-hidden="true">camera</span>
+                <span className="material-symbols-outlined text-sm text-primary">camera</span>
                 <span className="text-[10px] font-bold text-on-surface">ISO 400</span>
               </div>
               <div className="w-px h-3 bg-outline-variant/30"></div>
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm text-primary" aria-hidden="true">shutter_speed</span>
+                <span className="material-symbols-outlined text-sm text-primary">shutter_speed</span>
                 <span className="text-[10px] font-bold text-on-surface">1/250s</span>
               </div>
             </div>
@@ -142,7 +177,7 @@ export function Lightbox({ photo, photos, isOpen, onClose, onNavigate }: Lightbo
           disabled={!hasNext}
           className={`absolute right-6 md:right-12 z-20 glass-panel p-4 rounded-full transition-all active:scale-90 group ${
             hasNext 
-              ? 'text-on-surface hover:bg-primary-container/20 hover:text-primary' 
+              ? 'text-on-surface hover:bg-primary-container/20 hover:text-primary cursor-pointer' 
               : 'text-on-surface/30 cursor-not-allowed'
           }`}
           aria-label="Sonraki fotoğraf"
@@ -184,7 +219,7 @@ export function Lightbox({ photo, photos, isOpen, onClose, onNavigate }: Lightbo
         <div className="flex items-center gap-4">
           <button
             onClick={() => setIsSaved(!isSaved)}
-            className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all group ${
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all cursor-pointer ${
               isSaved 
                 ? 'bg-primary-container text-white' 
                 : 'bg-surface-container-highest text-on-surface hover:bg-surface-bright'
@@ -192,14 +227,14 @@ export function Lightbox({ photo, photos, isOpen, onClose, onNavigate }: Lightbo
             aria-label={isSaved ? 'Kaydedildi' : 'Kaydet'}
           >
             <span className={`material-symbols-outlined text-xl transition-transform ${isSaved ? 'scale-110' : 'group-hover:scale-110'}`}>
-              {isSaved ? 'favorite' : 'favorite'}
+              favorite
             </span>
             <span className="text-sm font-bold">{isSaved ? 'Kaydedildi' : 'Kaydet'}</span>
           </button>
           
           <button
-            onClick={() => {/* Download action */}}
-            className="flex items-center gap-2 px-8 py-3 rounded-xl bg-primary-container text-white shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:brightness-110 transition-all active:scale-95"
+            onClick={handleDownload}
+            className="flex items-center gap-2 px-8 py-3 rounded-xl bg-primary-container text-white shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:brightness-110 transition-all active:scale-95 cursor-pointer"
             aria-label="Yüksek çözünürlük indir"
           >
             <span className="material-symbols-outlined text-xl">download</span>
@@ -207,8 +242,8 @@ export function Lightbox({ photo, photos, isOpen, onClose, onNavigate }: Lightbo
           </button>
           
           <button
-            onClick={() => {/* Share action */}}
-            className="glass-panel p-3 rounded-xl text-on-surface hover:text-primary transition-all"
+            onClick={handleShare}
+            className="glass-panel p-3 rounded-xl text-on-surface hover:text-primary transition-all cursor-pointer"
             aria-label="Paylaş"
           >
             <span className="material-symbols-outlined">share</span>
@@ -217,8 +252,8 @@ export function Lightbox({ photo, photos, isOpen, onClose, onNavigate }: Lightbo
       </div>
 
       {/* Background Decoration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] -z-10 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-tertiary/5 blur-[120px] -z-10 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] -z-10 pointer-events-none" aria-hidden="true"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-tertiary/5 blur-[120px] -z-10 pointer-events-none" aria-hidden="true"></div>
     </div>
   );
 }
