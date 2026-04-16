@@ -1,4 +1,4 @@
-import type { Photo, PhotoCategory } from '../../types';
+import type { Photo, PhotoCategory } from '../types';
 
 export const mockPhoto = (overrides: Partial<Photo> = {}): Photo => ({
   id: 'test-photo-001',
@@ -20,7 +20,7 @@ export const createMockPhotos = (count: number, category: PhotoCategory = 'dogal
     })
   );
 
-export const renderHook = async (hook: () => void) => {
+export const renderHook = async () => {
   const result = { current: undefined as unknown };
   return result;
 };
