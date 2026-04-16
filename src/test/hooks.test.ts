@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { usePhotos } from '../hooks/usePhotos';
 import { useLightbox } from '../hooks/useLightbox';
-import type { Photo, PhotoCategory } from '../types';
+import type { Photo } from '../types';
 
 const mockPhotos: Photo[] = [
   {
