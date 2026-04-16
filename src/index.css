@@ -1,0 +1,18 @@
+@import "../stitch/design-tokens.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body, Inter), system-ui, sans-serif;
+  background-color: var(--color-background, #0b1326);
+  color: var(--color-on-background, #dae2fd);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
