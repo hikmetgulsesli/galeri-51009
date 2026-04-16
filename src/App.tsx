@@ -6,14 +6,14 @@ import type { Photo, PhotoCategory } from './types';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<PhotoCategory | 'hepsi'>('hepsi');
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const [_selectedPhoto, _setSelectedPhoto] = useState<Photo | null>(null);
 
   const handleCategoryChange = useCallback((category: PhotoCategory | 'hepsi') => {
     setSelectedCategory(category);
   }, []);
 
   const handlePhotoClick = useCallback((photo: Photo) => {
-    setSelectedPhoto(photo);
+    _setSelectedPhoto(photo);
   }, []);
 
   return (

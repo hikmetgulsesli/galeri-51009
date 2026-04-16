@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Photo, PhotoCategory } from '../types';
+import type { Photo } from '../types';
 import { PHOTO_CATEGORIES } from '../types';
 
 interface PhotoCardProps {
