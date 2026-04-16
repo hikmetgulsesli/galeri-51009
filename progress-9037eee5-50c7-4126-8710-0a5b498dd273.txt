@@ -1,22 +1,13 @@
-=== US-001: Proje Kurulumu, Tip Tanımları ve Demo Veri ===
-COMPLETED: 2026-04-16T00:04:30+00:00
+=== US-006: Özel Hooks: usePhotos ve useLightbox ===
+COMPLETED: 2026-04-16T03:57:00+00:00
 FILES CHANGED:
-  - package.json (Vite + React + TypeScript + Vitest)
-  - tsconfig.json
-  - vite.config.ts
-  - vitest.config.ts
-  - index.html (Material Symbols + Inter font)
-  - src/types/index.ts (Photo, PhotoCategory, GalleryState, FilterOption)
-  - src/data/photos.ts (20 demo fotoğraf)
-  - src/test/setup.ts
-  - src/test/utils.ts
+  - src/hooks/usePhotos.ts (usePhotos hook - filtreleme, kategori yönetimi)
+  - src/hooks/useLightbox.ts (useLightbox hook - lightbox state yönetimi)
+  - src/hooks/index.ts (exports)
+  - src/test/hooks.test.ts (15 test - usePhotos ve useLightbox testleri)
 KEY DECISIONS:
-  - Vite + React 18 + TypeScript standart kurulumu
-  - Fotoğraf tipleri: id, src, alt, category, width, height, photographer, createdAt
-  - 5 kategori: dogal-manzara, sehir, insan, hayvan, mimari
-  - 20 demo fotoğraf Unsplash URL'leri ile (Türkçe içerik)
-  - Vitest test altyapısı jsdom ortamında
-DEPENDENCIES ADDED:
-  - @vitejs/plugin-react, vite@6, react@18, react-dom@18
-  - typescript@5.6
-  - vitest@2, @testing-library/jest-dom, @testing-library/react, jsdom
+  - usePhotos: fotoğraf listesi, kategori filtreleme, reset ve getPhotoById fonksiyonları
+  - useLightbox: açık/kapalı durum, mevcut fotoğraf, navigasyon (prev/next), indeks takibi
+  - Her iki hook da memoization ve callback ile performans optimize edildi
+  - Test kapsamı: 15 test - tüm acceptance criteria ve edge case'ler
+DEPENDENCIES ADDED: (hiçbiri - mevcut paketler yeterliydi)
